@@ -1,0 +1,166 @@
+Notebook[{Cell[
+"\<\>","ChatInput",ExpressionUUID -> "c837bd77-e720-4fde-b3e6-98b482f0ece8"],Cell[
+BoxData[
+{RowBox[{RowBox[{"(*"," ","Parameters"," ","*)"}],"\n",RowBox[{RowBox[{"a"," ","="," ","0.5"}],";"}],"    ",RowBox[
+{"(*"," ",RowBox[{"Damping"," ","coefficient"}]," ","*)"}]}],"\n",RowBox[{RowBox[
+{RowBox[{"omega"," ","="," ","2.0"}],";"}],"  ",RowBox[{"(*"," ",RowBox[{"Natural"," ","frequency"}]," ","*)"}]}],"\n",RowBox[
+{RowBox[{RowBox[{"omega1"," ","="," ","1.0"}],";"}]," ",RowBox[{"(*"," ",RowBox[{"Forcing"," ","frequency"}]," ","*)"}]}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"(*"," ",RowBox[{"Differential"," ","equation"}]," ","*)"}],"\n",RowBox[
+{RowBox[{"eqn"," ","="," ",RowBox[{RowBox[{RowBox[{RowBox[{"y","''"}],"[","t","]"}]," ","+"," ",RowBox[
+{"a"," ",RowBox[{RowBox[{"y","'"}],"[","t","]"}]}]," ","+"," ",RowBox[{RowBox[{"omega","^","2"}]," ",RowBox[
+{"y","[","t","]"}]}]}]," ","=="," ",RowBox[{"Cos","[",RowBox[{"omega1"," ","t"}],"]"}]}]}],";"}]}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"(*"," ",RowBox[{"Initial"," ","conditions"}]," ","*)"}],"\n",RowBox[
+{RowBox[{"initConds"," ","="," ",RowBox[{"{",RowBox[{RowBox[{RowBox[{"y","[","0","]"}]," ","=="," ","1"}],","," ",RowBox[
+{RowBox[{RowBox[{"y","'"}],"[","0","]"}]," ","=="," ","0"}]}],"}"}]}],";"}]}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"(*"," ",RowBox[{"Solve"," ","numerically"}]," ","*)"}],"\n",RowBox[
+{RowBox[{"sol"," ","="," ",RowBox[{"NDSolve","[","\n","  ",RowBox[{RowBox[{"{",RowBox[
+{"eqn",","," ",RowBox[{"Sequence"," ","@@"," ","initConds"}]}],"}"}],",","\n","  ",RowBox[
+{"{",RowBox[{RowBox[{"y","[","t","]"}],","," ",RowBox[{RowBox[{"y","'"}],"[","t","]"}]}],"}"}],",","\n","  ",RowBox[
+{"{",RowBox[{"t",","," ","0",","," ","20"}],"}"}]}],"\n","]"}]}],";"}]}],RowBox[{"\n","\n"}],RowBox[
+{RowBox[{"(*"," ",RowBox[{"Extract"," ","numerical"," ","functions"}]," ","*)"}],"\n",RowBox[
+{RowBox[{RowBox[{"yNumerical","[","t_","]"}]," ","="," ",RowBox[{RowBox[{"y","[","t","]"}]," ","/."," ",RowBox[
+{"sol","[",RowBox[{"[","1","]"}],"]"}]}]}],";"}]}],"\n",RowBox[{RowBox[{RowBox[{"yPrimeNumerical","[","t_","]"}]," ","="," ",RowBox[
+{RowBox[{RowBox[{"y","'"}],"[","t","]"}]," ","/."," ",RowBox[{"sol","[",RowBox[{"[","1","]"}],"]"}]}]}],";"}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"data"," ","="," ",RowBox[{"Table","[","\n","  ",RowBox[
+{RowBox[{"{",RowBox[{RowBox[{"yNumerical","[","t","]"}],","," ",RowBox[{"yPrimeNumerical","[","t","]"}]}],"}"}],","," ","\n","  ",RowBox[
+{"{",RowBox[{"t",","," ","0",","," ","20",","," ","0.01"}],"}"}]}],"  ",RowBox[{"(*"," ",RowBox[
+{"Fine"," ","time"," ","steps"," ","for"," ","smooth"," ","plot"}]," ","*)"}],"\n","]"}]}],";"}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"ListLinePlot","[","\n","  ",RowBox[{"data",",","\n","  ",RowBox[
+{"PlotStyle"," ","\[Rule]"," ","Blue"}],",","\n","  ",RowBox[{"AxesLabel"," ","\[Rule]"," ",RowBox[
+{"{",RowBox[{"\"y(t)\"",","," ","\"y'(t)\""}],"}"}]}],",","\n","  ",RowBox[{"PlotLabel"," ","\[Rule]"," ","\"Phase Diagram\""}],",","\n","  ",RowBox[
+{"GridLines"," ","\[Rule]"," ","Automatic"}]}],"\n","]"}],"\n","\n"}]}],"Input",CellLabel -> "In[149]:= ",
+ExpressionUUID -> "aafeed2a-cebf-4a37-824e-4d7484700566"],Cell[
+BoxData[TemplateBox[
+{"NDSolve","dsvar","\"\\!\\(\\*TagBox[\\\"19.990000000000002`\\\", Short[#1, 5] & ]\\) cannot be used as a variable.\"",2,154,92,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "c4d7c6a9-ea68-4a1e-8ad3-0657a248eb75"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,155,93,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "104623ca-60c6-4752-a493-f5e59ad194fe"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,156,94,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "7d4fd575-afce-47a6-b964-60a5a17edf05"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,158,95,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "333e718d-bf73-404e-8ee2-dc7103d3f800"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,158,96,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "4f414a9e-3508-442e-a5df-8b4771319fd0"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,158,97,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "514e6775-4924-4d30-a5eb-7878a2d2d030"],Cell[
+BoxData[
+TemplateBox[{"General","stop","\"Further output of \\!\\(\\*TagBox[StyleBox[RowBox[{\\\"ReplaceAll\\\", \\\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"], Short[#1, 5] & ]\\) will be suppressed during this calculation.\"",2,158,98,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "1c447b49-6678-4e84-93c1-5b33c83af6cc"],Cell[
+BoxData[
+GraphicsBox[{{},{},{{},{}}},{DisplayFunction -> Identity,DisplayFunction -> Identity,AspectRatio -> NCache[
+Power[GoldenRatio,-1],0.6180339887498948`],Axes -> {True,True},AxesLabel -> {FormBox[
+TagBox["\"y(t)\"",HoldForm],TraditionalForm],FormBox[TagBox["\"y'(t)\"",HoldForm],
+TraditionalForm]},AxesOrigin -> {0,0},RuleDelayed[DisplayFunction,Identity],Frame -> {{False,False},{False,False}},FrameLabel -> {{None,None},{None,None}},FrameTicks -> {{Automatic,Automatic},{Automatic,Automatic}},GridLines -> {Automatic,Automatic},GridLinesStyle -> Directive[
+GrayLevel[0.5`,0.4`]],Method -> CompressedData["1:eJzNlmtMFFcUgAe1PoqKghqV1JTQRm1S1JBo+sdbBF2xPLYMmPhIdNi9A1eGueu5M4XFfz6S1tTEVGJbND5IrClafigaNfLH+Kr+sCbiA5SHD5CoUWLT/qm2587KsiwLap0f3mTvnrl3znfPPedkzkkp5gX6WEVRxAiccpiw9GG9TwW2QdV4FDIqmfBqfj8zS/Q4uTsSJ9WnGdQPGybVezqqqkmU2iQUsqiu2Ya1iNumX4OgagUNKsZInm3xcs1iviil6X1KHtACpcwnsk2LguazGDf14UOYOQqF5RQEvgfpzngebVIiCoXIKsvltqBeLphDHRZJdYRCsKn4AIUlmiFojIMW6zr1WWJIg+Q9l7KSUgN/Vshrg7wpTwL0BmdyPWpzfCTGy5n5DixpUhbwgMFMKvrfO4ardKBU51CeaYPgkMv9NOycGNyAofloOTWtIbnS9EpVui3DMGLsBVX5mMfN6CMm9GVGLhWlTiqFHDFRwooFN2yLOv5RWRVlIwfePgLhNbgVQiQMNNbxEgMMMPuGhkI8WjI8izK5wQECO3948En1DQLzdnb/+O2CdgIXNv/0Vd3xTjLQoEJM4TJ0togIx+v4OWdXdbWlPSbwcsOz5gPb7hE4WlM/81TaGZf4SufKBuVJBwH7t8b8opROAtO2N7a+6LnoEv/asb8WFm15QuD2nL2Hp9bfJDDLE1e79vwll/gHNm6tW9ONbu/Z/fnHDTNaCbCtysGK9W75v+DYnRFtDQ8J7M7/6FD1nhYCz6Z998fo+adc4u9IXnx9+jLMn/rinl1nLmF8991JOaeM6XaHzyQEFGc8JEz+uWP36RWb/i46eZ9AWc9s5Xw6xjV1yrzHc3+555JfaPKJ4fayu5iXMyb/W3EWBeXVcIe/tKMKSxXmZUhoIq/qxGWX7P/si0+zEg/eIvBl059fexrae/mPXOLz+P3j1qU8JVCa+U/XxvuYN81NV8Y2XzjiEv97ZX3GyR1dBI4/f3Gtsvs6gZz5easvT213iV/rTU9tfnqVgOP+DvzulNz+vXFWZcsb8sMf8nHyIOwfmPmWPYlscwo0s4QOplfzsxy/RusloZAfsFg5VhZZOnI1KMNWY7ByKF/PNn2G7afhyo2nqR/iOhZTwCKp0ujK2K/Ov75TekuTpsijOQe8tWZRUci5IbW5OXQbkOCEVGBtDy6xzVATFtcb2PBKf0J4P9uPF2VWsG/fq0FE96Ki2c7Hypn+j16M3EhyLhpg1L9cM2z6vlr9H/BsFJY="],PlotLabel -> FormBox[
+"\"Phase Diagram\"",TraditionalForm],PlotRange -> {{-1,1},{-1,1}},PlotRangeClipping -> True,PlotRangePadding -> {{Scaled[
+0.02`],Scaled[0.02`]},{Scaled[0.05`],Scaled[0.05`]}},Ticks -> {Automatic,Automatic}}],
+StandardForm],"Output",CellLabel -> "Out[158]= ",ExpressionUUID -> "ead63bdb-c81d-40a1-976d-d357071264f2"],Cell[
+BoxData[
+RowBox[{"ListLinePlot","[",RowBox[{"data",",",RowBox[{"PlotRange","\[Rule]","All"}],",",RowBox[
+{"PlotStyle","\[Rule]","Blue"}],",",RowBox[{"AxesLabel","\[Rule]",RowBox[{"{",RowBox[
+{"\"y(t)\"",",","\"y'(t)\""}],"}"}]}],",",RowBox[{"PlotLabel","\[Rule]","\"Phase Diagram\""}],",",RowBox[
+{"GridLines","\[Rule]","Automatic"}]}],"]"}]],"Input",NumberMarks -> False,CellLabel -> "In[159]:= ",
+ExpressionUUID -> "e5ca9db3-0604-4a0b-8263-9bdfa6f0ce35"],Cell[
+BoxData[TemplateBox[
+{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,159,99,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "2318abb1-31bb-4a74-bb83-79817e668cab"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,159,100,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "a9b05b5a-fb4a-4a08-9246-b08653d9ba5c"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,159,101,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "337f10ce-1498-407d-962c-fa888f667a5e"],Cell[
+BoxData[
+TemplateBox[{"General","stop","\"Further output of \\!\\(\\*TagBox[StyleBox[RowBox[{\\\"ReplaceAll\\\", \\\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"], Short[#1, 5] & ]\\) will be suppressed during this calculation.\"",2,159,102,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "b11886d7-a9ef-4e33-9cfc-23ba5cf72ad5"],Cell[
+BoxData[
+GraphicsBox[{{},{},{{},{}}},{DisplayFunction -> Identity,DisplayFunction -> Identity,AspectRatio -> NCache[
+Power[GoldenRatio,-1],0.6180339887498948`],Axes -> {True,True},AxesLabel -> {FormBox[
+TagBox["\"y(t)\"",HoldForm],TraditionalForm],FormBox[TagBox["\"y'(t)\"",HoldForm],
+TraditionalForm]},AxesOrigin -> {0,0},RuleDelayed[DisplayFunction,Identity],Frame -> {{False,False},{False,False}},FrameLabel -> {{None,None},{None,None}},FrameTicks -> {{Automatic,Automatic},{Automatic,Automatic}},GridLines -> {Automatic,Automatic},GridLinesStyle -> Directive[
+GrayLevel[0.5`,0.4`]],Method -> CompressedData["1:eJzNlmtMFFcUgAe1PoqKghqV1JTQRm1S1JBo+sdbBF2xPLYMmPhIdNi9A1eGueu5M4XFfz6S1tTEVGJbND5IrClafigaNfLH+Kr+sCbiA5SHD5CoUWLT/qm2587KsiwLap0f3mTvnrl3znfPPedkzkkp5gX6WEVRxAiccpiw9GG9TwW2QdV4FDIqmfBqfj8zS/Q4uTsSJ9WnGdQPGybVezqqqkmU2iQUsqiu2Ya1iNumX4OgagUNKsZInm3xcs1iviil6X1KHtACpcwnsk2LguazGDf14UOYOQqF5RQEvgfpzngebVIiCoXIKsvltqBeLphDHRZJdYRCsKn4AIUlmiFojIMW6zr1WWJIg+Q9l7KSUgN/Vshrg7wpTwL0BmdyPWpzfCTGy5n5DixpUhbwgMFMKvrfO4ardKBU51CeaYPgkMv9NOycGNyAofloOTWtIbnS9EpVui3DMGLsBVX5mMfN6CMm9GVGLhWlTiqFHDFRwooFN2yLOv5RWRVlIwfePgLhNbgVQiQMNNbxEgMMMPuGhkI8WjI8izK5wQECO3948En1DQLzdnb/+O2CdgIXNv/0Vd3xTjLQoEJM4TJ0togIx+v4OWdXdbWlPSbwcsOz5gPb7hE4WlM/81TaGZf4SufKBuVJBwH7t8b8opROAtO2N7a+6LnoEv/asb8WFm15QuD2nL2Hp9bfJDDLE1e79vwll/gHNm6tW9ONbu/Z/fnHDTNaCbCtysGK9W75v+DYnRFtDQ8J7M7/6FD1nhYCz6Z998fo+adc4u9IXnx9+jLMn/rinl1nLmF8991JOaeM6XaHzyQEFGc8JEz+uWP36RWb/i46eZ9AWc9s5Xw6xjV1yrzHc3+555JfaPKJ4fayu5iXMyb/W3EWBeXVcIe/tKMKSxXmZUhoIq/qxGWX7P/si0+zEg/eIvBl059fexrae/mPXOLz+P3j1qU8JVCa+U/XxvuYN81NV8Y2XzjiEv97ZX3GyR1dBI4/f3Gtsvs6gZz5easvT213iV/rTU9tfnqVgOP+DvzulNz+vXFWZcsb8sMf8nHyIOwfmPmWPYlscwo0s4QOplfzsxy/RusloZAfsFg5VhZZOnI1KMNWY7ByKF/PNn2G7afhyo2nqR/iOhZTwCKp0ujK2K/Ov75TekuTpsijOQe8tWZRUci5IbW5OXQbkOCEVGBtDy6xzVATFtcb2PBKf0J4P9uPF2VWsG/fq0FE96Ki2c7Hypn+j16M3EhyLhpg1L9cM2z6vlr9H/BsFJY="],PlotLabel -> FormBox[
+"\"Phase Diagram\"",TraditionalForm],PlotRange -> {{0,1},{0,1}},PlotRangeClipping -> True,PlotRangePadding -> {{Scaled[
+0.02`],Scaled[0.02`]},{Scaled[0.02`],Scaled[0.05`]}},Ticks -> {Automatic,Automatic}}],
+StandardForm],"Output",CellLabel -> "Out[159]= ",ExpressionUUID -> "cf766fe9-8b14-44db-8075-5c7fb1be1c2d"],Cell[
+
+"\<\>","ChatSystemInput",ExpressionUUID -> "1533c7d1-bf6f-4a35-ac7b-549f864adc1d"],Cell[
+BoxData[
+{RowBox[{RowBox[{"(*"," ",RowBox[{"Analytical"," ","solution"}]," ","*)"}],"\n",RowBox[
+{RowBox[{"analyticalSolution"," ","="," ",RowBox[{"DSolve","[","\n","  ",RowBox[{RowBox[
+{"{",RowBox[{"eqn",","," ",RowBox[{"Sequence"," ","@@"," ","initConds"}]}],"}"}],",","\n","  ",RowBox[
+{"y","[","t","]"}],",","\n","  ","t"}],"\n","]"}]}],";"}]}],RowBox[{"\n","\n"}],RowBox[
+{RowBox[{RowBox[{"yAnalytical","[","t_","]"}]," ","="," ",RowBox[{RowBox[{"y","[","t","]"}]," ","/."," ",RowBox[
+{"analyticalSolution","[",RowBox[{"[","1","]"}],"]"}]}]}],";"}],"\n",RowBox[{RowBox[
+{RowBox[{"yPrimeAnalytical","[","t_","]"}]," ","="," ",RowBox[{"D","[",RowBox[{RowBox[
+{"yAnalytical","[","t","]"}],","," ","t"}],"]"}]}],";"}],RowBox[{"\n","\n"}],RowBox[
+{RowBox[{"(*"," ",RowBox[{"Analytical"," ","phase"," ","data"}]," ","*)"}],"\n",RowBox[
+{RowBox[{"dataAnalytical"," ","="," ",RowBox[{"Table","[","\n","  ",RowBox[{RowBox[
+{"{",RowBox[{RowBox[{"yAnalytical","[","t","]"}],","," ",RowBox[{"yPrimeAnalytical","[","t","]"}]}],"}"}],","," ","\n","  ",RowBox[
+{"{",RowBox[{"t",","," ","0",","," ","20",","," ","0.01"}],"}"}]}],"\n","]"}]}],";"}]}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"(*"," ",RowBox[{"Overlay"," ","analytical"," ","and"," ","numerical"," ","phase"," ","diagrams"}]," ","*)"}],"\n",RowBox[
+{RowBox[{"Show","[","\n","  ",RowBox[{RowBox[{"ListLinePlot","[","\n","    ",RowBox[
+{"data",",","\n","    ",RowBox[{"PlotStyle"," ","\[Rule]"," ","Blue"}],",","\n","    ",RowBox[
+{"PlotLegends"," ","\[Rule]"," ","\"Numerical Solution\""}]}],"\n","  ","]"}],",","\n","  ",RowBox[
+{"ListLinePlot","[","\n","    ",RowBox[{"dataAnalytical",",","\n","    ",RowBox[{"PlotStyle"," ","\[Rule]"," ",RowBox[
+{"{",RowBox[{"Red",","," ","Dashed"}],"}"}]}],",","\n","    ",RowBox[{"PlotLegends"," ","\[Rule]"," ","\"Analytical Solution\""}]}],"\n","  ","]"}],",","\n","  ",RowBox[
+{"AxesLabel"," ","\[Rule]"," ",RowBox[{"{",RowBox[{"\"y(t)\"",","," ","\"y'(t)\""}],"}"}]}],",","\n","  ",RowBox[
+{"PlotLabel"," ","\[Rule]"," ","\"Phase Diagram (Numerical vs Analytical)\""}],",","\n","  ",RowBox[
+{"GridLines"," ","\[Rule]"," ","Automatic"}]}],"\n","]"}],"\n","\n"}]}]}],"Input",
+CellLabel -> "In[160]:= ",ExpressionUUID -> "95c10db0-f421-481f-abb5-2b690c35dd8e"],Cell[
+BoxData[
+TemplateBox[{"DSolve","dsvar","\"\\!\\(\\*TagBox[\\\"19.990000000000002`\\\", Short[#1, 5] & ]\\) cannot be used as a variable.\"",2,160,103,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "17b27004-5d9d-456e-a0c1-bedbf0ee7be1"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,161,104,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "6baad1d4-e934-4c01-86a4-f41a6774211e"],Cell[
+BoxData[
+TemplateBox[{"D","ivar","\"\\!\\(\\*TagBox[\\\"19.990000000000002`\\\", Short[#1, 5] & ]\\) is not a valid variable.\"",2,162,105,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "8e2604f0-f021-4674-9dea-abeb629b14f2"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,164,106,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "59015e76-eb31-45b4-84e6-a7e1d1995bb8"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,164,107,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "df1f7410-7de2-44ba-8217-38540584ec0a"],Cell[
+BoxData[
+TemplateBox[{"ReplaceAll","reps","\"\\!\\(\\*TagBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{RowBox[{\\\"4.`\\\", \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"19.990000000000002`\\\", \\\"]\\\"}]}], \\\"\[Equal]\\\", \\\"0.4171909582308284`\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"y\\\", \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"1.`16.\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\\\", MultilineFunction -> None], \\\"[\\\", \\\"0\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}]}], \\\"}\\\"}], Short[#1, 5] & ]\\) is neither a list of replacement rules nor a valid dispatch table, and so cannot be used for replacing.\"",2,164,108,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "90515230-f312-4f6e-88df-d1dd4dea4448"],Cell[
+BoxData[
+TemplateBox[{"General","stop","\"Further output of \\!\\(\\*TagBox[StyleBox[RowBox[{\\\"ReplaceAll\\\", \\\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"], Short[#1, 5] & ]\\) will be suppressed during this calculation.\"",2,164,109,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "5b37677f-7830-47f9-8498-16c26de8181e"],Cell[
+BoxData[
+TemplateBox[{"D","ivar","\"\\!\\(\\*TagBox[\\\"19.990000000000002`\\\", Short[#1, 5] & ]\\) is not a valid variable.\"",2,164,110,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "dc172125-2681-42d0-8f2e-db1b58eec9c9"],Cell[
+BoxData[
+TemplateBox[{"D","ivar","\"\\!\\(\\*TagBox[\\\"19.990000000000002`\\\", Short[#1, 5] & ]\\) is not a valid variable.\"",2,164,111,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "2d8eb405-1aaf-4892-bc14-7daca5028b25"],Cell[
+BoxData[
+TemplateBox[{"D","ivar","\"\\!\\(\\*TagBox[\\\"19.990000000000002`\\\", Short[#1, 5] & ]\\) is not a valid variable.\"",2,164,112,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "775ab118-ff2c-45d6-bb59-a885620cd11c"],Cell[
+BoxData[
+TemplateBox[{"General","stop","\"Further output of \\!\\(\\*TagBox[StyleBox[RowBox[{\\\"D\\\", \\\"::\\\", \\\"ivar\\\"}], \\\"MessageName\\\"], Short[#1, 5] & ]\\) will be suppressed during this calculation.\"",2,164,113,16657081126224073999,"Local"},
+"MessageTemplate"],StandardForm],"MSG","Message",ExpressionUUID -> "985682a9-2de6-40ad-9bfb-a8648a602e83"],Cell[
+BoxData[
+TemplateBox[{GraphicsBox[{{{},{},{{},{}}},{{},{},{{},{}}}},{AxesLabel -> {FormBox[
+"\"y(t)\"",TraditionalForm],FormBox["\"y'(t)\"",TraditionalForm]},PlotLabel -> FormBox[
+"\"Phase Diagram (Numerical vs Analytical)\"",TraditionalForm],GridLines -> Automatic,DisplayFunction -> Identity,DisplayFunction -> Identity,AspectRatio -> NCache[
+Power[GoldenRatio,-1],0.6180339887498948`],Axes -> {True,True},AxesLabel -> {None,None},AxesOrigin -> {0,0},RuleDelayed[
+DisplayFunction,Identity],Frame -> {{False,False},{False,False}},FrameLabel -> {{None,None},{None,None}},FrameTicks -> {{Automatic,Automatic},{Automatic,Automatic}},GridLines -> {None,None},GridLinesStyle -> Directive[
+GrayLevel[0.5`,0.4`]],Method -> CompressedData["1:eJzNlmtMFFcUgAe1PoqKghqV1JTQRm1S1JBo+sdbBF2xPLYMmPhIdNi9A1eGueu5M4XFfz6S1tTEVGJbND5IrClafigaNfLH+Kr+sCbiA5SHD5CoUWLT/qm2587KsiwLap0f3mTvnrl3znfPPedkzkkp5gX6WEVRxAiccpiw9GG9TwW2QdV4FDIqmfBqfj8zS/Q4uTsSJ9WnGdQPGybVezqqqkmU2iQUsqiu2Ya1iNumX4OgagUNKsZInm3xcs1iviil6X1KHtACpcwnsk2LguazGDf14UOYOQqF5RQEvgfpzngebVIiCoXIKsvltqBeLphDHRZJdYRCsKn4AIUlmiFojIMW6zr1WWJIg+Q9l7KSUgN/Vshrg7wpTwL0BmdyPWpzfCTGy5n5DixpUhbwgMFMKvrfO4ardKBU51CeaYPgkMv9NOycGNyAofloOTWtIbnS9EpVui3DMGLsBVX5mMfN6CMm9GVGLhWlTiqFHDFRwooFN2yLOv5RWRVlIwfePgLhNbgVQiQMNNbxEgMMMPuGhkI8WjI8izK5wQECO3948En1DQLzdnb/+O2CdgIXNv/0Vd3xTjLQoEJM4TJ0togIx+v4OWdXdbWlPSbwcsOz5gPb7hE4WlM/81TaGZf4SufKBuVJBwH7t8b8opROAtO2N7a+6LnoEv/asb8WFm15QuD2nL2Hp9bfJDDLE1e79vwll/gHNm6tW9ONbu/Z/fnHDTNaCbCtysGK9W75v+DYnRFtDQ8J7M7/6FD1nhYCz6Z998fo+adc4u9IXnx9+jLMn/rinl1nLmF8991JOaeM6XaHzyQEFGc8JEz+uWP36RWb/i46eZ9AWc9s5Xw6xjV1yrzHc3+555JfaPKJ4fayu5iXMyb/W3EWBeXVcIe/tKMKSxXmZUhoIq/qxGWX7P/si0+zEg/eIvBl059fexrae/mPXOLz+P3j1qU8JVCa+U/XxvuYN81NV8Y2XzjiEv97ZX3GyR1dBI4/f3Gtsvs6gZz5easvT213iV/rTU9tfnqVgOP+DvzulNz+vXFWZcsb8sMf8nHyIOwfmPmWPYlscwo0s4QOplfzsxy/RusloZAfsFg5VhZZOnI1KMNWY7ByKF/PNn2G7afhyo2nqR/iOhZTwCKp0ujK2K/Ov75TekuTpsijOQe8tWZRUci5IbW5OXQbkOCEVGBtDy6xzVATFtcb2PBKf0J4P9uPF2VWsG/fq0FE96Ki2c7Hypn+j16M3EhyLhpg1L9cM2z6vlr9H/BsFJY="],PlotRange -> {{-1,1},{-1,1}},PlotRangeClipping -> True,PlotRangePadding -> {{Scaled[
+0.02`],Scaled[0.02`]},{Scaled[0.05`],Scaled[0.05`]}},Ticks -> {Automatic,Automatic}}],FormBox[
+TagBox[GridBox[{{FormBox["\"Numerical Solution\"",TraditionalForm]},{FormBox["\"Analytical Solution\"",
+TraditionalForm]}},GridBoxAlignment -> {"Columns" -> {{Left}}},AutoDelete -> False,
+GridBoxItemSize -> {"Columns" -> {{Automatic}},"Rows" -> {{Automatic}}},GridBoxSpacings -> {"Columns" -> {{0}}}],
+"Grid"],TraditionalForm]},"Legended",DisplayFunction -> Function[GridBox[{{TagBox[
+ItemBox[PaneBox[TagBox[Slot[1],"SkipImageSizeLevel"],Alignment -> {Center,Baseline},
+BaselinePosition -> Baseline],DefaultBaseStyle -> "Labeled"],"SkipImageSizeLevel"],ItemBox[
+Slot[2],DefaultBaseStyle -> "LabeledLabel"]}},GridBoxAlignment -> {"Columns" -> {{Center}},"Rows" -> {{Center}}},
+AutoDelete -> False,GridBoxItemSize -> Automatic,BaselinePosition -> {1,1}]],InterpretationFunction -> Function[
+RowBox[{"Legended","[",RowBox[{Slot[1],",",RowBox[{"Placed","[",RowBox[{Slot[2],",","After"}],"]"}]}],"]"}]],
+Editable -> True],StandardForm],"Output",CellLabel -> "Out[164]= ",ExpressionUUID -> "534500cb-8a81-4ff4-9dc4-0289210ecbaa"]},
+StyleDefinitions -> "Chatbook.nb",FrontEndVersion -> "14.1 for Wolfram Cloud 1.70 (December 4, 2024)"]
